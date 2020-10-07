@@ -8,6 +8,7 @@ import lk.ijse.dep.db.JPAUtil;
 import lk.ijse.dep.entity.Item;
 import lk.ijse.dep.util.ItemTM;
 import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManager;
@@ -16,7 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 @Component
 public class ItemBOImpl implements ItemBO {
-    private static ItemDAO itemDAO = DAOFactory.getInstance().getDAO(DAOType.ITEM);
+    @Autowired
+    private ItemDAO itemDAO;
 
     public String getNewItemCode() throws Exception {
         EntityManager em = JPAUtil.getEntityManagerFactory().createEntityManager();

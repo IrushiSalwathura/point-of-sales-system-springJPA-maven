@@ -12,6 +12,7 @@ import lk.ijse.dep.entity.OrderDetail;
 import lk.ijse.dep.util.OrderDetailTM;
 import lk.ijse.dep.util.OrderTM;
 import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManager;
@@ -20,11 +21,16 @@ import java.util.ArrayList;
 import java.util.List;
 @Component
 public class OrderBOImpl implements OrderBO {
-    private OrderDAO orderDAO = DAOFactory.getInstance().getDAO(DAOType.ORDER);
-    private OrderDetailDAO orderDetailDAO = DAOFactory.getInstance().getDAO(DAOType.ORDERDETAIL);
-    private ItemDAO itemDAO = DAOFactory.getInstance().getDAO(DAOType.ITEM);
-    private QueryDAO queryDAO = DAOFactory.getInstance().getDAO(DAOType.QUERY);
-    private CustomerDAO customerDAO = DAOFactory.getInstance().getDAO(DAOType.CUSTOMER);
+    @Autowired
+    private OrderDAO orderDAO;
+    @Autowired
+    private OrderDetailDAO orderDetailDAO;
+    @Autowired
+    private ItemDAO itemDAO;
+    @Autowired
+    private QueryDAO queryDAO;
+    @Autowired
+    private CustomerDAO customerDAO;
 
     public void placeOrder(OrderTM order, List<OrderDetailTM> orderDetails) throws Exception {
         EntityManager em = JPAUtil.getEntityManagerFactory().createEntityManager();

@@ -7,6 +7,7 @@ import lk.ijse.dep.dao.custom.CustomerDAO;
 import lk.ijse.dep.db.JPAUtil;
 import lk.ijse.dep.entity.Customer;
 import lk.ijse.dep.util.CustomerTM;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManager;
@@ -14,7 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 @Component
 public class CustomerBOImpl implements CustomerBO {
-    private static CustomerDAO customerDAO = DAOFactory.getInstance().getDAO(DAOType.CUSTOMER);
+    @Autowired
+    private CustomerDAO customerDAO;
     public String getNewCustomerId() throws Exception {
         EntityManager em = JPAUtil.getEntityManagerFactory().createEntityManager();
         customerDAO.setEntityManager(em);
