@@ -7,11 +7,12 @@ import lk.ijse.dep.dao.custom.CustomerDAO;
 import lk.ijse.dep.db.JPAUtil;
 import lk.ijse.dep.entity.Customer;
 import lk.ijse.dep.util.CustomerTM;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManager;
 import java.util.ArrayList;
 import java.util.List;
-
+@Component
 public class CustomerBOImpl implements CustomerBO {
     private static CustomerDAO customerDAO = DAOFactory.getInstance().getDAO(DAOType.CUSTOMER);
     public String getNewCustomerId() throws Exception {
