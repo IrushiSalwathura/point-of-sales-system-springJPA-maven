@@ -1,8 +1,6 @@
 package lk.ijse.dep.business.custom.impl;
 
 import lk.ijse.dep.business.custom.CustomerBO;
-import lk.ijse.dep.dao.DAOFactory;
-import lk.ijse.dep.dao.DAOType;
 import lk.ijse.dep.dao.custom.CustomerDAO;
 import lk.ijse.dep.db.JPAUtil;
 import lk.ijse.dep.entity.Customer;
